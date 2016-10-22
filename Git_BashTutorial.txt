@@ -1,0 +1,19 @@
+Copy GitHub Repo to you local computer in Git Bash
+
+git clone https://github.com/s00174787/Year3Project.git (use insert key to paste)
+
+git remote add origin https://github.com/s00174787/Year3Project.git
+
+How to commit changes and push files
+
+git status  - to see fies and their status
+
+git add . - to add all files
+
+git commit -m (-m is for a message all commits should have a message)
+
+git log to see the message 
+
+git push origin master (push the master branch to origin remote)
+
+DONE!
