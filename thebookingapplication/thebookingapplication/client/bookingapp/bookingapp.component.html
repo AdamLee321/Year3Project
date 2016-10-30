@@ -86,7 +86,7 @@
           <th>Physio</th>
           <th>Location</th>
         </tr>
-        <tr *ngFor="let appointment of appointments">
+        <tr *ngFor="let appointment of appointments | paginate: {itemsPerPage: 2, currentPage: p}">
           <td>{{appointment.date | date:"dd/MM/yyyy"}}</td>
           <td>{{appointment.date | date:"HH:mm"}}</td>
           <td>{{appointment.patient}}</td>
@@ -94,6 +94,7 @@
           <td>{{appointment.Location}}</td>
         </tr>
       </table>
+      <pagination-controls (pageChange)="p = $event" maxSize="7"></pagination-controls>
     </div>
   </div>
 </div>

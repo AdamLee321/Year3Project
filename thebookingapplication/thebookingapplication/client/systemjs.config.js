@@ -24,7 +24,8 @@
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
-      'primeng': 'npm:primeng'
+      'primeng': 'npm:primeng',
+      'ng2-pagination' : 'npm:ng2-pagination'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -42,7 +43,11 @@
       'primeng': {
             main: './index.js',
             defaultExtension: 'js'
-          }
+      },
+      'ng2-pagination':{
+        defaultExtension: 'js',
+        main: './index.js'
+      }
     }
   });
 })(this);
