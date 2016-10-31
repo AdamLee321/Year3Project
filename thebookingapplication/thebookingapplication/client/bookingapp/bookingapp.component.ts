@@ -3,12 +3,13 @@ import {Component } from '@angular/core';
 import {bookingappService} from './services/app.service';
 import {Appointment} from '../Appointment';
 import {Calendar} from 'primeng/primeng';
+import {Modal} from 'ng2-modal';
 
 @Component({
 	moduleId: module.id,
 	selector: 'main-application',
 	templateUrl: 'bookingapp.component.html',
-	entryComponents: [Calendar],
+	entryComponents: [Calendar, Modal],
 	providers: [bookingappService],
 })
 
@@ -30,4 +31,4 @@ export class bookingappComponent {
 			this.appointments = appointments;
 		});
 	}
-}
+}	

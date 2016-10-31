@@ -139,3 +139,12 @@ body,html{
   height: 15%;
   margin-bottom: 5%;
 }
+
+.modalformContent{
+  display: flex;
+  align-items: center;
+}
+
+.MidAlign{
+  vertical-align: middle;
+}

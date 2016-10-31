@@ -64,6 +64,40 @@
   </div>
   <hr class="divider" />
 
+  <!-- Modal Window Start -->
+
+  <modal #EditApp>
+            <modal-header>
+                <h2 class="text-center">Edit Appointment Information:</h2>
+            </modal-header>
+            <modal-content>
+                <div class="container-fluid">
+                  <form>
+                    <div class="form-group row">
+                      <div class="col-md-12 modalformContent">
+                        <label class="col-md-4 MidAlign">Patient First Name</label>
+                        <div class="col-md-8">
+                          <input type="text" name="FName" class="form-control" disabled="true">
+                        </div>
+                      </div>
+                      <hr clas="divider">
+                      <div class="col-md-12 modalformContent">
+                        <label class="col-md-4"><span class="MidAlign">Patient SurName</span></label>
+                        <div class="col-md-8">
+                          <input type="text" name="SName" class="form-control" disabled="true">
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </modal-content>
+            <modal-footer>
+                <button class="btn btn-primary" (click)="EditApp.close()">okay!</button>
+            </modal-footer>
+        </modal>
+
+  <!-- Modal Window End -->
+
   <div class="col-md-12" id="CalendarTableWrapper">
     <div class="col-md-5">
       <div id="DatepickerDiv">
@@ -86,7 +120,7 @@
           <th>Physio</th>
           <th>Location</th>
         </tr>
-        <tr *ngFor="let appointment of appointments | paginate: {itemsPerPage: 2, currentPage: p}">
+        <tr *ngFor="let appointment of appointments | paginate: {itemsPerPage: 2, currentPage: p}" (click)="EditApp.open()">
           <td>{{appointment.date | date:"dd/MM/yyyy"}}</td>
           <td>{{appointment.date | date:"HH:mm"}}</td>
           <td>{{appointment.patient}}</td>
