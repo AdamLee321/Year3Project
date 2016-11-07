@@ -11,6 +11,8 @@ import { SecretaryHeaderComponent} from './SecretaryHeader/secretary-header.comp
 import { AddPatientComponent } from './AddPatient/addPatient.component';
 import { ViewPatientsComponent } from './ViewPatients/viewPatients.component';
 
+import {SideBarComponent} from './SideBar/SideBar.component';
+
 import { AppRoutingModule } from './app-routing.module';	
 
 import { CalendarModule } from 'primeng/primeng';
@@ -18,7 +20,7 @@ import { CalendarModule } from 'primeng/primeng';
 @NgModule({
 	imports: [HttpModule, BrowserModule, FormsModule, RouterModule, AppRoutingModule, CalendarModule],
 	declarations: [AppComponent, LoginComponent, SecretaryDashComponent, SecretaryHeaderComponent,
-	AddPatientComponent, ViewPatientsComponent ],
+	AddPatientComponent, ViewPatientsComponent, SideBarComponent ],
 	bootstrap: [AppComponent]
 })
 
