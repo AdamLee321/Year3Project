@@ -11,6 +11,7 @@ hr{
 
 .ui-datepicker{
     width: 30em;
+    margin-bottom: 5%;
 }
 
 .ui-datepicker .ui-datepicker-header{
@@ -18,5 +19,18 @@ hr{
 }
 
 .ui-datepicker table{
-    font-size: 1.3em;
+    font-size: 1.4em;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next{
+    height: 3.25em;
+    width: 3.25em;
+}
+
+.SchedSearchBxs{
+    padding-bottom: 5%;
+}
+
+.dtepckrDiv{
+    border-right: 2px solid #eee;
 }

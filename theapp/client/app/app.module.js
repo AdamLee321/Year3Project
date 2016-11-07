@@ -18,6 +18,7 @@ var login_component_1 = require('./Login/login.component');
 var SecretaryDash_component_1 = require('./SecretaryDash/SecretaryDash.component');
 var secretary_header_component_1 = require('./SecretaryDash/secretary-header.component');
 var addPatient_component_1 = require('./AddPatient/addPatient.component');
+var viewPatients_component_1 = require('./ViewPatients/viewPatients.component');
 var app_routing_module_1 = require('./app-routing.module');
 var primeng_1 = require('primeng/primeng');
 var AppModule = (function () {
@@ -26,7 +27,8 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule, app_routing_module_1.AppRoutingModule, primeng_1.CalendarModule],
-            declarations: [app_component_1.AppComponent, login_component_1.LoginComponent, SecretaryDash_component_1.SecretaryDashComponent, secretary_header_component_1.SecretaryHeaderComponent, addPatient_component_1.AddPatientComponent],
+            declarations: [app_component_1.AppComponent, login_component_1.LoginComponent, SecretaryDash_component_1.SecretaryDashComponent, secretary_header_component_1.SecretaryHeaderComponent,
+                addPatient_component_1.AddPatientComponent, viewPatients_component_1.ViewPatientsComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
