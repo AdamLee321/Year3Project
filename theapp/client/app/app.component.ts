@@ -1,6 +1,6 @@
 import {Component } from '@angular/core';
 
-import { SecretaryHeaderComponent } from './SecretaryDash/secretary-header.component';
+import { SecretaryHeaderComponent } from './SecretaryHeader/secretary-header.component';
 
 @Component({
 	moduleId: module.id,

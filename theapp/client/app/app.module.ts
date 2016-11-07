@@ -7,11 +7,11 @@ import { RouterModule}		from '@angular/router';
 import { AppComponent} 		from './app.component';
 import { LoginComponent } from './Login/login.component';
 import { SecretaryDashComponent} from './SecretaryDash/SecretaryDash.component';
-import { SecretaryHeaderComponent} from './SecretaryDash/secretary-header.component';
+import { SecretaryHeaderComponent} from './SecretaryHeader/secretary-header.component';
 import { AddPatientComponent } from './AddPatient/addPatient.component';
 import { ViewPatientsComponent } from './ViewPatients/viewPatients.component';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';	
 
 import { CalendarModule } from 'primeng/primeng';
 

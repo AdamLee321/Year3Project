@@ -9,20 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var secretary_header_component_1 = require('./SecretaryHeader/secretary-header.component');
-var AppComponent = (function () {
-    function AppComponent() {
+var SecretaryHeaderComponent = (function () {
+    function SecretaryHeaderComponent() {
     }
-    AppComponent = __decorate([
+    SecretaryHeaderComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'app',
-            entryComponents: [secretary_header_component_1.SecretaryHeaderComponent],
-            templateUrl: 'app.component.html'
+            selector: 'secheader',
+            templateUrl: 'secretary-header.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], SecretaryHeaderComponent);
+    return SecretaryHeaderComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.SecretaryHeaderComponent = SecretaryHeaderComponent;
+//# sourceMappingURL=secretary-header.component.js.map
