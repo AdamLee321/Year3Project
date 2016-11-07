@@ -1,0 +1,18 @@
+{
+  "name": "HSE-Project",
+  "version": "1.0.0",
+  "description": "Scheduling System for the HSE",
+  "main": "Server.js\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[s\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "form-data": "^2.1.1",
+    "mongojs": "^2.4.0"
+  }
+}

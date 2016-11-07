@@ -1,0 +1,22 @@
+hr{
+    border-top: 2px solid #eee;
+}
+
+.StatBoxes{
+    background-color: lightgrey;
+    border-radius: 15px;
+    margin-bottom: 2%;
+    padding: 0;
+}
+
+.ui-datepicker{
+    width: 30em;
+}
+
+.ui-datepicker .ui-datepicker-header{
+    padding: .8em 0;
+}
+
+.ui-datepicker table{
+    font-size: 1.3em;
+}

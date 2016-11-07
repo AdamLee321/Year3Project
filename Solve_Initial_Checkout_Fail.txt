@@ -1,0 +1,8 @@
+Run these commands in git bash in root folder
+
+(Not tested to see if it matters as to what folder you actually run it in)
+
+git config --global core.autocrlf
+
+git config core.longpaths true
+git checkout -f

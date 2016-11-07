@@ -1,0 +1,1 @@
+{"version":3,"file":"addPatient.component.js","sourceRoot":"","sources":["addPatient.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAwB,eAAe,CAAC,CAAA;AAQxC;IAAA;IAAkC,CAAC;IANnC;QAAC,gBAAS,CAAC;YACP,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,YAAY;YACtB,WAAW,EAAE,2BAA2B;SAC3C,CAAC;;2BAAA;IAEgC,0BAAC;AAAD,CAAC,AAAnC,IAAmC;AAAtB,2BAAmB,sBAAG,CAAA"}
