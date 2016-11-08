@@ -9,12 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var login_service_1 = require('./login.service');
 var LoginComponent = (function () {
-    function LoginComponent() {
+    //Injected thingy
+    function LoginComponent(loginService) {
+        this.loginService = loginService;
+        //this.testProperty = loginService.testMethod();
     }
+    //Methods
     LoginComponent.prototype.login = function (event) {
         event.preventDefault();
-        alert('Login Click');
+        this.testProperty = this.loginService.testMethod();
     };
     LoginComponent.prototype.forgotPassword = function (event) {
         event.preventDefault();
@@ -24,9 +29,10 @@ var LoginComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'login',
-            templateUrl: 'login.component.html'
+            templateUrl: 'login.component.html',
+            providers: [login_service_1.LoginService],
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [login_service_1.LoginService])
     ], LoginComponent);
     return LoginComponent;
 }());
