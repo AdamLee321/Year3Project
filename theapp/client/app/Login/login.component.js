@@ -12,6 +12,14 @@ var core_1 = require('@angular/core');
 var LoginComponent = (function () {
     function LoginComponent() {
     }
+    LoginComponent.prototype.login = function (event) {
+        event.preventDefault();
+        alert('Login Click');
+    };
+    LoginComponent.prototype.forgotPassword = function (event) {
+        event.preventDefault();
+        alert('Pass Reset Click');
+    };
     LoginComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
