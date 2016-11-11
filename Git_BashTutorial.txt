@@ -16,4 +16,10 @@ git log to see the message
 
 git push origin master (push the master branch to origin remote)
 
+Longpath fix
+git config core.longpaths true
+
+git checkout -f
+
+
 DONE!
