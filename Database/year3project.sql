@@ -245,3 +245,24 @@ VALUES (NULL, 'Adam123', 'qwerty3579', 1), --  Last value pulled from Userrole
 INSERT INTO patient(Usertbl_user_id,p_Fname,p_Lname,p_Address1,p_Address2,p_city,p_county,P_DOB,p_tel_num,p_email) 
 VALUES (1, 'batman42', 'Bruce', 'Wayne', 'Wayne Manor', '', 'Gotham City', 'Sligo', '0852286261', 'Batman1@thebatcave.com'),
 		(2, 'Hulkbuster44', 'Tony','Stark','Stark Tower','200 Park Avenue','NYC',' Manhattan','0854766626','IronManMk44@friday.com');
+        
+INSERT INTO Secretary(Usertbl_user_id, S_FName, S_LName)
+VALUES(NULL, 'Mary', 'Jane'),
+	  (NULL, 'Jenny', 'Craig');         
+        
+ INSERT INTO PhysioTherapist(Usertbl_user_id, phy_Fname, phy_Lname, phy_address1, phy_address2, phy_city, phy_county, phy_DOB, phy_email, phy_teleNum, Clinics_ClinicID)
+ VALUES(NULL, 'David', 'Hasslehoff', '13 Bakers Street', 'Linsfield', 'Sligo', 'Sligo', '15-07-78', 'hoff99@gmail.com', '087103040', NULL),
+	   (NULL, 'Hilary', 'Clinton', '01 White House', 'Wash Lane', 'Sligo', 'Sligo', '15-07-83', 'clint666@gmail.com', '0894567', NULL),
+       (NULL, 'Enda', 'Kenny', '88 Nitwit Street', 'DumbDumb', 'Sligo', 'Sligo', '15-07-78', 'mrKenny@hotmail.com', '087103043', NULL);
+        
+INSERT INTO Dischargetbl(discharge_id, dis_date, discharge_Method)
+VALUES(1, '13-10-16', 'Letter'),
+	  (2, '01-11-16', 'SMS');      
+        
+INSERT INTO Sessiontbl(session_id, sess_desc, Dischargetbl_discharge_id)
+VALUES (1, 'Ankle injury', 1),
+	   (2, 'Spinal injury', 2);
+        
+INSERT INTO PatientAppointment(Appointment_App_id, Sessiontbl_session_id, Sessiontbl_Dischargetbl_discharge_id, Patient_Usertbl_user_id, PhysioTherapist_Usertbl_user_id, PhysioTherapist_Clinics_ClinicID)
+VALUES (NULL, 1, 1, 1, NULL, NULL),
+	   (NULL, 2, 2, 1, NULL, NULL);
