@@ -13,22 +13,22 @@ var http_1 = require('@angular/http');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var router_1 = require('@angular/router');
-var SecretaryDash_component_1 = require('./SecretaryDash.component');
+var editPatient_component_1 = require('./editPatient.component');
 var secretary_header_module_1 = require('../SecretaryHeader/secretary-header.module');
 var SideBar_module_1 = require('../SideBar/SideBar.module');
-var primeng_1 = require('primeng/primeng');
-var SecretaryDashModule = (function () {
-    function SecretaryDashModule() {
+var EditPatientModule = (function () {
+    function EditPatientModule() {
     }
-    SecretaryDashModule = __decorate([
+    EditPatientModule = __decorate([
         core_1.NgModule({
-            imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule, secretary_header_module_1.SecretaryHeaderModule, SideBar_module_1.SideBarModule, primeng_1.CalendarModule],
-            declarations: [SecretaryDash_component_1.SecretaryDashComponent],
-            exports: [SecretaryDash_component_1.SecretaryDashComponent]
+            imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule, secretary_header_module_1.SecretaryHeaderModule, SideBar_module_1.SideBarModule],
+            declarations: [editPatient_component_1.EditPatientComponent],
+            exports: [editPatient_component_1.EditPatientComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], SecretaryDashModule);
-    return SecretaryDashModule;
+    ], EditPatientModule);
+    return EditPatientModule;
 }());
-exports.SecretaryDashModule = SecretaryDashModule;
-//# sourceMappingURL=SecretaryDash.module.js.map
+exports.EditPatientModule = EditPatientModule;
+/* This module is not connected to the main app.module.ts file */ 
+//# sourceMappingURL=editPatient.module.js.map

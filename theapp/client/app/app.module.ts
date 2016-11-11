@@ -6,19 +6,16 @@ import { RouterModule}		from '@angular/router';
 
 import { AppComponent} 		from './app.component';
 import { LoginComponent } from './Login/login.component';
-import { SecretaryDashComponent} from './SecretaryDash/SecretaryDash.component';
 
-import { AddPatientComponent } from './AddPatient/addPatient.component';
-import { ViewPatientsComponent } from './ViewPatients/viewPatients.component';
+import { SecretaryDashModule} from './SecretaryDash/SecretaryDash.module';
+import { addPatientModule } from './AddPatient/addPatient.module';
+import { ViewPatientsModule } from './ViewPatients/viewPatients.module';
 
 import { AppRoutingModule } from './app-routing.module';	
 
-import { CalendarModule } from 'primeng/primeng';
-
 @NgModule({
-	imports: [HttpModule, BrowserModule, FormsModule, RouterModule, AppRoutingModule, CalendarModule],
-	declarations: [AppComponent, LoginComponent, SecretaryDashComponent,
-	AddPatientComponent, ViewPatientsComponent ],
+	imports: [HttpModule, BrowserModule, FormsModule, RouterModule, SecretaryDashModule,addPatientModule, ViewPatientsModule, AppRoutingModule],
+	declarations: [AppComponent, LoginComponent],
 	bootstrap: [AppComponent]
 })
 

@@ -15,19 +15,17 @@ var forms_1 = require('@angular/forms');
 var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
 var login_component_1 = require('./Login/login.component');
-var SecretaryDash_component_1 = require('./SecretaryDash/SecretaryDash.component');
-var addPatient_component_1 = require('./AddPatient/addPatient.component');
-var viewPatients_component_1 = require('./ViewPatients/viewPatients.component');
+var SecretaryDash_module_1 = require('./SecretaryDash/SecretaryDash.module');
+var addPatient_module_1 = require('./AddPatient/addPatient.module');
+var viewPatients_module_1 = require('./ViewPatients/viewPatients.module');
 var app_routing_module_1 = require('./app-routing.module');
-var primeng_1 = require('primeng/primeng');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule, app_routing_module_1.AppRoutingModule, primeng_1.CalendarModule],
-            declarations: [app_component_1.AppComponent, login_component_1.LoginComponent, SecretaryDash_component_1.SecretaryDashComponent,
-                addPatient_component_1.AddPatientComponent, viewPatients_component_1.ViewPatientsComponent],
+            imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule, SecretaryDash_module_1.SecretaryDashModule, addPatient_module_1.addPatientModule, viewPatients_module_1.ViewPatientsModule, app_routing_module_1.AppRoutingModule],
+            declarations: [app_component_1.AppComponent, login_component_1.LoginComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
