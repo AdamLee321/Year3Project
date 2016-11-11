@@ -1,0 +1,14 @@
+So, In my latest push, I used modules in the SideBar,SecretaryHeader and SecretaryDash folders
+
+Since Sidebar and SecHeader are to be used elsewhere in different views, I have to list the Componenet I have imported, as an export
+
+In Module A, Listing the imported component also as an export, allows you to use the exported componenet in Module B,
+when you import Module A into Module B.
+
+Doing this allows you to directly link modules and components, and you do not have to send the components or modules of Sidebar or SecretaryHeader
+to the app.module.ts file.
+
+From my understanding, this is mainly beneficial in the future when we have router modules and services, which will all go through their own respective module.ts.
+
+I believe this will mean that instead of importing everything seperately, we will be simply able to just import the module that contains everything, and viola,
+we will have imported everything in the 1 import. However, the only components etc that will be usable will be the parts we select to export.
