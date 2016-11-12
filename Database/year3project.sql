@@ -3,7 +3,7 @@
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
 SET FOREIGN_KEY_CHECKS=0;  -- These Lines are for extra security measures
-DROP TABLE usertbl,userrole, clinics, appointment, dischargetbl, patient, patientappointment, physiotherapist, secretary, sessiontbl;  -- Dropping the tables as to not have duplicate data
+DROP TABLE IF EXISTS usertbl,userrole, clinics, appointment, dischargetbl, patient, patientappointment, physiotherapist, secretary, sessiontbl;  -- Dropping the tables as to not have duplicate data
 SET FOREIGN_KEY_CHECKS=1;  -- Returning the correct values
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -73,8 +73,8 @@ CREATE TABLE IF NOT EXISTS `year3database`.`Patient` (
   `p_city` VARCHAR(45) NOT NULL,
   `p_county` VARCHAR(45) NOT NULL,
   `P_DOB` DATE NOT NULL,
-  `p_tel_num` INT NOT NULL,
-  `p_email` VARCHAR(45) NULL DEFAULT NULL,
+  `p_tel_num` VARCHAR(10) NOT NULL,
+  `p_email` VARCHAR(45) NULL,
   PRIMARY KEY (`Usertbl_user_id`),
   CONSTRAINT `fk_Patient_Usertbl1`
     FOREIGN KEY (`Usertbl_user_id`)
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `year3database`.`Clinics` (
   `c_Address2` VARCHAR(45) NULL DEFAULT NULL,
   `c_City` VARCHAR(45) NOT NULL,
   `c_County` VARCHAR(45) NOT NULL,
-  `c_Tele_Num` INT NOT NULL,
+  `c_Tele_Num` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`ClinicID`))
 ENGINE = InnoDB;
 
@@ -108,10 +108,10 @@ CREATE TABLE IF NOT EXISTS `year3database`.`PhysioTherapist` (
   `phy_address1` VARCHAR(45) NOT NULL,
   `phy_address2` VARCHAR(45) NULL DEFAULT NULL,
   `phy_city` VARCHAR(45) NOT NULL,
-  `phy_county` VARCHAR(45) NULL DEFAULT NULL,
-  `phy_DOB` DATE NOT NULL,
+  `phy_county` VARCHAR(45) NULL,
+  `phy_DOB` DATE NOT NULL, 
   `phy_email` VARCHAR(45) NOT NULL,
-  `phy_teleNum` VARCHAR(45) NOT NULL,
+  `phy_teleNum` VARCHAR(10) NOT NULL,
   `Clinics_ClinicID` INT NOT NULL,
   PRIMARY KEY (`Usertbl_user_id`, `Clinics_ClinicID`),
   INDEX `fk_PhysioTherapist_Usertbl1_idx` (`Usertbl_user_id` ASC),
@@ -136,10 +136,8 @@ CREATE TABLE IF NOT EXISTS `year3database`.`Appointment` (
   `App_id` INT NOT NULL AUTO_INCREMENT,
   `referral_source` VARCHAR(45) NOT NULL,
   `dateOfRef` DATE NOT NULL,
-  `dateOfApp` DATE NOT NULL,
-  `startOfAppTime` VARCHAR(45) NOT NULL,
+  `dateOfApp` DATETIME NOT NULL,
   `priority` INT NOT NULL,
-  `endOfAppTime` VARCHAR(45) NOT NULL,
   `Attended` TINYINT(1) NOT NULL,
   PRIMARY KEY (`App_id`))
 ENGINE = InnoDB;
@@ -151,7 +149,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `year3database`.`Dischargetbl` (
   `discharge_id` INT NOT NULL AUTO_INCREMENT,
   `discharge_status` TINYINT(0) NOT NULL,
-  `dis_date` DATETIME NULL,
+  `dis_date` DATE NULL,
   `discharge_Method` VARCHAR(225) NULL,
   PRIMARY KEY (`discharge_id`))
 ENGINE = InnoDB;
@@ -193,8 +191,8 @@ CREATE TABLE IF NOT EXISTS `year3database`.`PatientAppointment` (
     REFERENCES `year3database`.`Appointment` (`App_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_PatientA������ppointment_Sessiontbl1`
-    FOREIGN KEY (`Sessiontbl_session_id`)
+  CONSTRAINT `fk_PatientAppointment_Sessiontbl1`
+    FOREIGN KEY (`Sessiontbl_session_id` ) 
     REFERENCES `year3database`.`Sessiontbl` (`session_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -217,12 +215,13 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 -- INSERTS FOR THE TABLES
-INSERT INTO appointment(App_id, referral_source, dateOfRef, dateOfApp, startOfAppTime, priority, endOfAppTime, Attended)
-VALUES (NULL, 'Doctor', '29-06-16', '07-11-16', '11:00', 1, '11:30', '1'),
-		(NULL, 'Hospital', '28-03-16', '07-11-16', '10:00', 2, '10:30', '0');
+INSERT INTO appointment(App_id, referral_source, dateOfRef, dateOfApp, priority, Attended)
+VALUES (NULL, 'Doctor', '2016-7-12', '2016-11-25 11:00:00', 1, '0'),
+		(NULL, 'Hospital', '2016-7-14', '2016-11-26 10:00:00', 2, '0');
         
 INSERT INTO clinics(ClinicID, c_Address1, c_Address2, c_City, c_County, c_Tele_Num) 
-VALUES (NULL, '123 Main Street', '', 'Tallaght', 'Dublin', '0851234567');
+VALUES (NULL, '123 Main Street', '', 'Tallaght', 'Dublin', '0851234567'),
+        (NULL, '11 Hepton Street', '', 'Sligo', 'Sligo', '0862058334');
 
 INSERT INTO userrole(userRole_id, userRole_name) 
 VALUES (1, 'Admin'),
@@ -231,32 +230,37 @@ VALUES (1, 'Admin'),
         (4, 'secretary');
            
 INSERT INTO usertbl(user_id, username, hashed_pin, userRole_userRole_id) 
-VALUES (NULL, 'Adam123', 'qwerty3579', 1), --  Last value pulled from Userrole
-		(NULL, 'Shane321','wasd2468', 2),  -- But How is it pulled?
-        (NULL, 'James246','asdf1234', 3), -- Hashed password must be changed
-        (NULL, 'ShaneAgain135', 'zxcv531', 4); -- THIS IS TEST DATA
+VALUES (NULL, '0852286261', 'qwerty3579', 2), --  Last value pulled from Userrole -1  Patient Bruce Wayne
+		(NULL, '0854766626','wasd2468', 2),  -- But How is it pulled? - 2 Patient Tony Stark
+        (NULL, '0879485731', 'asdf1234', 4), -- Hashed password must be changed - 3 Secretary Mary Jane
+        (NULL, '0873631465', 'zxcv531', 4), -- THIS IS TEST DATA - 4 Secretary Jenny Craig
+        (NULL, '0860486512', 'hsdgffu',3), -- 5 Physio David Hasslehoff
+        (NULL, '0874678245', 'wgtwfgr', 3), -- 6 Physio Hilary Clinton
+        (NULL, '0871857309', 'fe46dvs', 3)  -- 7 Physio Enda Kenny
+        ;
         
 INSERT INTO patient(Usertbl_user_id,p_Fname,p_Lname,p_Address1,p_Address2,p_city,p_county,P_DOB,p_tel_num,p_email) 
-VALUES (1, 'Bruce', 'Wayne', 'Wayne Manor', '', 'Gotham City', 'Sligo', '1939-05-15', '0852286261', 'Batman1@thebatcave.com'),
-		(2, 'Tony','Stark','Stark Tower','200 Park Avenue','NYC',' Manhattan', '1968-05-25','0854766626','IronManMk44@friday.com');
+
+VALUES (1, 'Bruce', 'Wayne', 'Wayne Manor', '', 'Gotham City', 'Sligo', '1985-05-05', '0852286261', 'Batman1@thebatcave.com'),
+		(2, 'Tony','Stark','Stark Tower','200 Park Avenue','NYC',' Manhattan', '1980-07-12' ,'0854766626','IronManMk44@friday.com');
         
 INSERT INTO Secretary(Usertbl_user_id, S_FName, S_LName)
-VALUES(NULL, 'Mary', 'Jane'),
-	  (NULL, 'Jenny', 'Craig');         
+VALUES(3, 'Mary', 'Jane'),
+	  (4, 'Jenny', 'Craig');
+
+ INSERT INTO PhysioTherapist(Usertbl_user_id, phy_Fname, phy_Lname, phy_address1, phy_address2, phy_city, phy_county, phy_DOB, phy_email, phy_teleNum, Clinics_ClinicID)
+ VALUES(5, 'David', 'Hasslehoff', '13 Bakers Street', 'Linsfield', 'Sligo', 'Sligo', '1978-07-3', 'hoff99@gmail.com', '087103040', 1),
+	   (6, 'Hilary', 'Clinton', '01 White House', 'Wash Lane', 'Sligo', 'Sligo', '1983-05-15', 'clint666@gmail.com', '0894567', 1),
+       (7, 'Enda', 'Kenny', '88 Nitwit Street', 'DumbDumb', 'Sligo', 'Sligo', '1977-04-12', 'mrKenny@hotmail.com', '087103043', 2);
         
-INSERT INTO PhysioTherapist(Usertbl_user_id, phy_Fname, phy_Lname, phy_address1, phy_address2, phy_city, phy_county, phy_DOB, phy_email, phy_teleNum, Clinics_ClinicID)
-VALUES(NULL, 'David', 'Hasslehoff', '13 Bakers Street', 'Linsfield', 'Sligo', 'Sligo', '1978-05-17', 'hoff99@gmail.com', '087103040', NULL),
-	   (NULL, 'Hilary', 'Clinton', '01 White House', 'Wash Lane', 'Sligo', 'Sligo', '1983-07-15', 'clint666@gmail.com', '0894567', NULL),
-       (NULL, 'Enda', 'Kenny', '88 Nitwit Street', 'DumbDumb', 'Sligo', 'Sligo', '1994-03-24', 'mrKenny@hotmail.com', '087103043', NULL);
-        
-INSERT INTO Dischargetbl(discharge_id, discharge_status, dis_date, discharge_Method)
-VALUES(1, 0,'13-10-16', 'Letter'),
-	  (2, 1,'01-11-16', 'SMS');      
+INSERT INTO Dischargetbl(discharge_id, dis_date, discharge_Method)
+VALUES(1, '', ''),
+	  (2, '', '');
         
 INSERT INTO Sessiontbl(session_id, sess_desc, Dischargetbl_discharge_id)
 VALUES (1, 'Ankle injury', 1),
 	   (2, 'Spinal injury', 2);
         
-INSERT INTO PatientAppointment(Appointment_App_id, Sessiontbl_session_id, Sessiontbl_Dischargetbl_discharge_id, Patient_Usertbl_user_id, PhysioTherapist_Usertbl_user_id, PhysioTherapist_Clinics_ClinicID)
-VALUES (NULL, 1, 1, 1, NULL, NULL),
-	   (NULL, 2, 2, 1, NULL, NULL);
+INSERT INTO PatientAppointment(Appointment_App_id, Sessiontbl_session_id, Patient_Usertbl_user_id, PhysioTherapist_Usertbl_user_id, PhysioTherapist_Clinics_ClinicID)
+VALUES (1, 1, 1, 5, 1),
+	   (2, 2, 2, 6, 1);

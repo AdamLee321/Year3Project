@@ -16,13 +16,14 @@ var router_1 = require('@angular/router');
 var SecretaryDash_component_1 = require('./SecretaryDash.component');
 var secretary_header_module_1 = require('../SecretaryHeader/secretary-header.module');
 var SideBar_module_1 = require('../SideBar/SideBar.module');
+var ng2_pagination_1 = require('ng2-pagination');
 var primeng_1 = require('primeng/primeng');
 var SecretaryDashModule = (function () {
     function SecretaryDashModule() {
     }
     SecretaryDashModule = __decorate([
         core_1.NgModule({
-            imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule, secretary_header_module_1.SecretaryHeaderModule, SideBar_module_1.SideBarModule, primeng_1.CalendarModule],
+            imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule, secretary_header_module_1.SecretaryHeaderModule, SideBar_module_1.SideBarModule, primeng_1.CalendarModule, ng2_pagination_1.Ng2PaginationModule],
             declarations: [SecretaryDash_component_1.SecretaryDashComponent],
             exports: [SecretaryDash_component_1.SecretaryDashComponent]
         }), 

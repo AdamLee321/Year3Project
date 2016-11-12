@@ -3,6 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 var home = require('./routes/home');
+var appointment = require('./routes/Appointment')
 
 var port = 3000;
 
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/', home);
+app.use('/api', appointment);
 
 app.post('/api/loginPost',function(req,res){
 	var x = req.body.var1;

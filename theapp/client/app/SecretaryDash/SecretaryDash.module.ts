@@ -7,11 +7,12 @@ import { RouterModule}		from '@angular/router';
 import { SecretaryDashComponent } from './SecretaryDash.component';
 import { SecretaryHeaderModule } from '../SecretaryHeader/secretary-header.module';
 import { SideBarModule} from '../SideBar/SideBar.module';
+import { Ng2PaginationModule} from 'ng2-pagination';
 
 import { CalendarModule } from 'primeng/primeng';
 
 @NgModule({
-    imports: [HttpModule, BrowserModule, FormsModule, RouterModule, SecretaryHeaderModule, SideBarModule, CalendarModule],
+    imports: [HttpModule, BrowserModule, FormsModule, RouterModule, SecretaryHeaderModule, SideBarModule, CalendarModule, Ng2PaginationModule],
     declarations: [SecretaryDashComponent],
     exports: [SecretaryDashComponent]
 })
