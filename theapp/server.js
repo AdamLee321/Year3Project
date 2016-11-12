@@ -22,6 +22,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/', home);
 
+app.post('/api/loginPost',function(req,res){
+	var x = req.body.var1;
+	//res.send(JSON.stringify(var1));
+
+	console.log('Post Worked : ' + String(x));
+	
+});
+
 app.listen(port, function(){
 	console.log('Server started on port 3000');
 });

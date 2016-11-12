@@ -14,16 +14,18 @@ var LoginComponent = (function () {
     //Injected thingy
     function LoginComponent(loginService) {
         this.loginService = loginService;
-        //this.testProperty = loginService.testMethod();
     }
     //Methods
     LoginComponent.prototype.login = function (event) {
+        var _this = this;
         event.preventDefault();
-        this.testProperty = this.loginService.testMethod();
+        this.loginService.testGet()
+            .subscribe(function (data) { return _this.testProperty = JSON.stringify(data); }, function (error) { return alert(error); }, function () { return console.log('Get Finished'); });
     };
     LoginComponent.prototype.forgotPassword = function (event) {
+        var _this = this;
         event.preventDefault();
-        alert('Pass Reset Click');
+        this.loginService.testPost().subscribe(function (data) { return _this.testProperty = JSON.stringify(data); }, function (error) { return alert(error); }, function () { return console.log('Post Finished'); });
     };
     LoginComponent = __decorate([
         core_1.Component({

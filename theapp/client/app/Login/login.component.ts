@@ -18,17 +18,28 @@ export class LoginComponent {
 	//Methods
 	login(event){
 		event.preventDefault();
-		this.testProperty = this.loginService.testMethod();
+		this.loginService.testGet()
+		.subscribe(
+			data => this.testProperty = JSON.stringify(data),
+			error => alert(error),
+			() => console.log('Get Finished')
+		);
+		
 	}
 
 	forgotPassword(event){
 		event.preventDefault();
-		alert('Pass Reset Click');
+		this.loginService.testPost().subscribe(
+			data => this.testProperty = JSON.stringify(data),
+			error => alert(error),
+			() => console.log('Post Finished')
+		);
 	}
+
+
 
 	//Injected thingy
 	constructor(private loginService : LoginService ){
-		//this.testProperty = loginService.testMethod();
 	}
 
 	
