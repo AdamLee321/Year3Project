@@ -1,16 +1,23 @@
 body{
     padding-top: 70px;
-}
+    background-color: #e6e6e6;
+    background-image: url('https://www.xmple.com/wallpaper/black-grey-gradient-linear-1920x1080-c2-000000-d3d3d3-a-210-f-14.svg');
 
+}
 hr{
     border-top: 2px solid #eee;
 }
 
 .StatBoxes{
-    background-color: lightgrey;
-    border-radius: 15px;
-    margin-bottom: 2%;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+    margin-bottom: 2.5%;
     padding: 0;
+}
+
+.tableDiv{
+    background-color: #f4f4f4;
+    border-radius: 4px;
 }
 
 /*CSS for DatePicker*/
@@ -18,20 +25,21 @@ hr{
 .ui-datepicker{
     margin-top: 5%;
     margin-bottom: 5%;
-    width: 30em;
+    width: 40em;
 }
 
 .ui-datepicker .ui-datepicker-header{
-    padding: .8em 0;
+    padding: 1.8em 0;
 }
 
 .ui-datepicker table{
     font-size: 1.4em;
+    line-height: 2.2em;
 }
 
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next{
-    height: 3.25em;
-    width: 3.25em;
+    height: 5.25em;
+    width: 5em;
 }
 
 /*End CSS Datepicker*/
@@ -40,12 +48,17 @@ hr{
     padding-bottom: 5%;
 }
 
+.calendarDiv{
+    background-color: #f4f4f4;
+    border-radius: 4px;
+}
+
 .dtepckrDiv{
     border-right: 2px solid #eee;
 }
 
 .StatBoxes>div{
-    padding-bottom: 1%;
+    padding-bottom: 2%;
 }
 
 /*Styling for the SideBar*/
@@ -61,73 +74,222 @@ hr{
 }
 
 .nav-sidebar>li>a{
-    color: darkslategrey;
+    color: #9d9d9d;
     position: relative;
     display: block;
     padding: 15px 15px;
 }
 
+.col-md-2{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.table>tbody>tr>td{
+    padding: 8px 0px 8px 16px;
+}
+
+th{
+    padding: 8px 0px;
+}
+
 /* Only Media Queries */
 
-@media (max-width: 1370px){
+@media (max-width: 1800px){
     .ui-datepicker{
-        width: 25em;
+        width: 37.5em;
     }
     .ui-datepicker table{
         font-size: 1.2em;
     }
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1705px){
     .ui-datepicker{
-        width: 22.5em;
+        width: 35em;
     }
-    .ui-datepicker table{
-        font-size: 1em;
-    }
-    .ui-datepicker .ui-datepicker-header{
-    padding: .7em 0;
-    }   
 }
 
-@media (max-width: 1070px){
+@media (max-width: 1640px){
+    .ui-datepicker{
+        width: 34em;
+    }
+}
+
+@media (max-width: 1555px){
+    .ui-datepicker{
+        width: 32.5em;
+    }
+}
+
+@media (max-width: 1495px){
+    .ui-datepicker{
+        width: 30em;
+    }
+    .ui-datepicker table{
+        line-height: 1.8em;
+    }
+}
+
+@media (max-width: 1410px){
+    .ui-datepicker{
+        width: 28em;
+    }
+}
+
+@media (max-width: 1365px){
+    .ui-datepicker{
+        width: 27em;
+    }
+}
+
+@media (max-width: 1290px){
+    .ui-datepicker{
+        width: 26em;
+    }
+    .ui-datepicker .ui-datepicker-header{
+    padding: 1.6em 0;
+    }
+    .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next{
+    height: 4.5em;
+    width: 4.5em;
+    }
+}
+
+@media (max-width: 1250px){
+    .ui-datepicker{
+        width: 25em;
+    }
+    .ui-datepicker table{
+        line-height: 1.7em;
+    }
+    .ui-datepicker .ui-datepicker-header{
+    padding: 1.5em 0;
+    }
+}
+
+@media (max-width: 1199px){
+    .ui-datepicker{
+        width: 21em;
+    }
+}
+
+@media (max-width: 1170px){
     .ui-datepicker{
         width: 20em;
     }
     .ui-datepicker table{
-        font-size: 0.9em;
+        line-height: 1.6em;
+    }
+    .ui-datepicker .ui-datepicker-header{
+    padding: 1.4em 0;
     }
 }
 
-@media (max-width: 965px){
+@media (max-width: 1120px){
+    .ui-datepicker{
+        width: 19em;
+    }
+    .ui-datepicker table{
+        font-size: 1.1em;
+    }
+}
+
+@media(max-width: 1091px){
+    .StatBoxes{
+        margin-bottom: 5%;
+    }
+}
+
+@media (max-width: 1080px){
+    .ui-datepicker{
+        width: 18em;
+    }
+    .ui-datepicker table{
+        line-height: 1.4em;
+    }
+}
+
+@media (max-width: 1030px){
     .ui-datepicker{
         width: 17.5em;
     }
     .ui-datepicker table{
-        font-size: 0.8em;
+        font-size: 1em;
+    }
+    .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next{
+    height: 3em;
+    width: 3em;
     }
     .ui-datepicker .ui-datepicker-header{
-    padding: .6em 0;
+    padding: .7em 0;
     }
 }
 
-@media (max-width: 850px){
-    .ui-datepicker{
-        width: 15em;
-    }
+@media (max-width: 993px){
     .ui-datepicker table{
         font-size: 0.7em;
     }
+    .ui-datepicker .ui-datepicker-header{
+        padding: .6em 0;
+    }
+    .ui-datepicker{
+        width: 15em;
+    }
 }
 
-@media (min-width: 768px) {
+@media(min-width: 950px){
     .StatsHeaders{
     font-size: 18px;
     }
     .StatsInfo{
     font-size: 16px;
     }
+}
+
+@media (max-width: 950px){
+    .ui-datepicker{
+        width: 14.5em;
+    }
+}
+
+@media (max-width: 890px){
+    .ui-datepicker{
+        width: 13.5em;
+    }
+    .ui-datepicker table{
+        font-size: 0.6em;
+    }
+}
+
+
+@media (max-width: 850px){
+    .ui-datepicker{
+        width: 12.75em;
+    }
+    .ui-datepicker table{
+        line-height: 1.1em;
+        font-size: 0.5em;
+    }
+    .ui-datepicker .ui-datepicker-header{
+    padding: .5em 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .StatsHeaders{
+        font-size: 16px;
+    }
+    .StatsInfo{
+        font-size: 15px;
+    }
     .sidebar {
+    color: white;
     position: fixed;
     top: 51px;
     bottom: 0;
@@ -137,7 +299,7 @@ hr{
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
+    background-color: #222;
     border-right: 1px solid #eee;
     }
 }
