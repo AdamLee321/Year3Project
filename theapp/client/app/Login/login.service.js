@@ -26,7 +26,7 @@ var LoginService = (function () {
         var params = 'json=' + json;
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        return this.http.post('/api/loginPost', params, {
+        return this.http.post('/testapi/post', params, {
             headers: headers
         })
             .map(function (res) { return res.json(); });
@@ -42,7 +42,7 @@ var LoginService = (function () {
         }
         */
         //
-        return this.http.get('http://date.jsontest.com')
+        return this.http.get('/testapi/get')
             .map(function (res) { return res.json(); });
     };
     LoginService = __decorate([

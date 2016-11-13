@@ -11,7 +11,7 @@ import {LoginService} from './login.service';
 
 export class LoginComponent {
 	//Properties
-	testProperty : string;
+	testProperty;
 
 
 

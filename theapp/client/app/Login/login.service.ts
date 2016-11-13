@@ -23,7 +23,7 @@ export class LoginService{
 		var params = 'json=' + json;
 		var headers = new Headers();
 		headers.append('Content-Type','application/x-www-form-urlencoded');
-		return this.http.post('/api/loginPost',
+		return this.http.post('/testapi/post',
 			params,
 			{
 				headers: headers
@@ -42,7 +42,7 @@ export class LoginService{
 		}
 		*/
 		//
-		return this.http.get('http://date.jsontest.com')
+		return this.http.get('/testapi/get')
 		.map(res => res.json());
 	}
 }
