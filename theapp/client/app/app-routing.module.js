@@ -14,12 +14,14 @@ var login_component_1 = require('./Login/login.component');
 var SecretaryDash_component_1 = require('./SecretaryDash/SecretaryDash.component');
 var addPatient_component_1 = require('./AddPatient/addPatient.component');
 var viewPatients_component_1 = require('./ViewPatients/viewPatients.component');
+var AddAppointment_component_1 = require('./AddAppointment/AddAppointment.component');
 var routes = [
     { path: '', redirectTo: 'secdash', pathMatch: 'full' },
     { path: 'login', component: login_component_1.LoginComponent },
     { path: 'secdash', component: SecretaryDash_component_1.SecretaryDashComponent },
     { path: 'addPatient', component: addPatient_component_1.AddPatientComponent },
-    { path: 'viewPatients', component: viewPatients_component_1.ViewPatientsComponent }
+    { path: 'viewPatients', component: viewPatients_component_1.ViewPatientsComponent },
+    { path: 'addAppointment', component: AddAppointment_component_1.AddAppointmentComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

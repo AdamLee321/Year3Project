@@ -18,6 +18,8 @@ router.get('/dayAppointments/:selDate', function(req, res, next){
     endDate = new Date(endDate.setHours(endDate.getHours() - 12));
     var stringEnd = moment(endDate).format('YYYY-MM-DD hh:mm:ss');
 
+    
+
     var startDate = new Date(req.params.selDate);
     startDate = new Date(startDate.setHours(startDate.getHours() - 12));
     var stringStart = moment(startDate).format('YYYY-MM-DD hh:mm:ss');

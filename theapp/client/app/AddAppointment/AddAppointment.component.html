@@ -1,0 +1,92 @@
+<header>
+    <secheader></secheader>
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-1">
+            <sidebar></sidebar>
+        </div>
+
+        <div class="col-lg-11 col-lg-offset-1 col-md-10 col-md-offset-2">
+            <div class="col-lg-5 col-md-5">
+                <div class="col-md-12 calendarDiv">
+                    <div class="col-sm-12 text-center">
+                        <h3>Appointment Date: </h3>
+                    </div>
+                    <div class="col-sm-12">
+                        <!-- Date and Time Picker goes in here -->
+                        <p-calendar [(ngModel)]="thevalue" [inline]="true" [showTime]="true" dateFormat="dd.mm.yyyy" showOtherMonths=true (onSelect)="UpdateDate(this.thevalue)"></p-calendar>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-md-7 formDiv">
+                <div class="col-sm-8 col-md-offset-2 text-center">
+                    <h3>Add New Appointment:</h3>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="col-sm-4 text-center ">
+                        <label for="patientNme">Patient Name: </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" placeholder="First Name" name="patientFName">
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" placeholder="Last Name" name="patientLName">
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="col-sm-4 text-center ">
+                        <label for="patientNme">Patient Address 1: </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control" disabled type="text" placeholder="Address Line 1" name="patientAdr1">
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="col-sm-4 text-center ">
+                        <label for="patientNme">Patient Address 2: </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control" disabled type="text" placeholder="Address Line 2" name="patientAdr2">
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="col-sm-4 text-center ">
+                        <label for="patientNme">Patient City: </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="text" placeholder="Address Line 2" name="patientCity" disabled>
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="col-sm-4 text-center ">
+                        <label for="patientNme">Physio: </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" placeholder="First Name" name="physioFName">
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" placeholder="Last Name" name="physioLName">
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-4 col-md-offset-1">
+                        <button class="btn btn-danger">Cancel Appointment</button>
+                    </div>
+
+                    <div class="col-md-4 col-md-offset-1">
+                        <button class="btn btn-success">Confirm Appointment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

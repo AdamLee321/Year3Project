@@ -36,9 +36,6 @@ var InputTextarea = (function () {
             this.resize();
         }
     };
-    InputTextarea.prototype.isDisabled = function () {
-        return this.el.nativeElement.disabled;
-    };
     InputTextarea.prototype.onKeyup = function (e) {
         if (this.autoResize) {
             this.resize();
@@ -51,6 +48,20 @@ var InputTextarea = (function () {
         }
         this.rows = (linesCount >= this.rowsDefault) ? (linesCount + 1) : this.rowsDefault;
     };
+    Object.defineProperty(InputTextarea.prototype, "disabled", {
+        get: function () {
+            return this.el.nativeElement.disabled;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(InputTextarea.prototype, "filled", {
+        get: function () {
+            return this.el.nativeElement.value != '';
+        },
+        enumerable: true,
+        configurable: true
+    });
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Boolean)
@@ -103,7 +114,8 @@ var InputTextarea = (function () {
                 '[class.ui-widget]': 'true',
                 '[class.ui-state-hover]': 'hover',
                 '[class.ui-state-focus]': 'focus',
-                '[class.ui-state-disabled]': 'isDisabled()',
+                '[class.ui-state-disabled]': 'disabled',
+                '[class.ui-state-filled]': 'filled',
                 '[attr.rows]': 'rows',
                 '[attr.cols]': 'cols'
             }

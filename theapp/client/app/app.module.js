@@ -18,13 +18,14 @@ var login_component_1 = require('./Login/login.component');
 var SecretaryDash_module_1 = require('./SecretaryDash/SecretaryDash.module');
 var addPatient_module_1 = require('./AddPatient/addPatient.module');
 var viewPatients_module_1 = require('./ViewPatients/viewPatients.module');
+var AddAppointment_module_1 = require('./AddAppointment/AddAppointment.module');
 var app_routing_module_1 = require('./app-routing.module');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule, SecretaryDash_module_1.SecretaryDashModule, addPatient_module_1.addPatientModule, viewPatients_module_1.ViewPatientsModule, app_routing_module_1.AppRoutingModule],
+            imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule, SecretaryDash_module_1.SecretaryDashModule, addPatient_module_1.addPatientModule, viewPatients_module_1.ViewPatientsModule, AddAppointment_module_1.AddAppointmentModule, app_routing_module_1.AppRoutingModule],
             declarations: [app_component_1.AppComponent, login_component_1.LoginComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 

@@ -134,8 +134,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `year3database`.`Appointment` (
   `App_id` INT NOT NULL AUTO_INCREMENT,
-  `referral_source` VARCHAR(45) NOT NULL,
-  `dateOfRef` DATE NOT NULL,
   `dateOfApp` DATETIME NOT NULL,
   `priority` INT NOT NULL,
   `Attended` TINYINT(1) NOT NULL,
@@ -162,6 +160,9 @@ CREATE TABLE IF NOT EXISTS `year3database`.`Sessiontbl` (
   `session_id` INT NOT NULL AUTO_INCREMENT,
   `sess_desc` VARCHAR(225) NULL,
   `Dischargetbl_discharge_id` INT NOT NULL,
+  -- Added these 2 lines from appointmenttable
+  `referral_source` VARCHAR(45) NOT NULL,
+  `dateOfRef` DATE NOT NULL,
   PRIMARY KEY (`session_id`, `Dischargetbl_discharge_id`),
   INDEX `fk_Sessiontbl_Dischargetbl1_idx` (`Dischargetbl_discharge_id` ASC),
   CONSTRAINT `fk_Sessiontbl_Dischargetbl1`
@@ -215,9 +216,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 -- INSERTS FOR THE TABLES
-INSERT INTO appointment(App_id, referral_source, dateOfRef, dateOfApp, priority, Attended)
-VALUES (NULL, 'Doctor', '2016-7-12', '2016-11-25 11:00:00', 1, '0'),
-		(NULL, 'Hospital', '2016-7-14', '2016-11-26 10:00:00', 2, '0');
+INSERT INTO appointment(App_id, dateOfApp, priority, Attended)
+VALUES (NULL, '2016-11-25 11:00:00', 1, '0'),
+		(NULL, '2016-11-26 10:00:00', 2, '0');
         
 INSERT INTO clinics(ClinicID, c_Address1, c_Address2, c_City, c_County, c_Tele_Num) 
 VALUES (NULL, '123 Main Street', '', 'Tallaght', 'Dublin', '0851234567'),
@@ -257,9 +258,9 @@ INSERT INTO Dischargetbl(discharge_id, dis_date, discharge_Method)
 VALUES(1, '', ''),
 	  (2, '', '');
         
-INSERT INTO Sessiontbl(session_id, sess_desc, Dischargetbl_discharge_id)
-VALUES (1, 'Ankle injury', 1),
-	   (2, 'Spinal injury', 2);
+INSERT INTO Sessiontbl(session_id, sess_desc, referral_source, dateOfRef, Dischargetbl_discharge_id)
+VALUES (1, 'Ankle injury', 'Doctor', '2016-7-12', 1),
+	   (2, 'Spinal injury', 'Hospital', '2016-7-14', 2);
         
 INSERT INTO PatientAppointment(Appointment_App_id, Sessiontbl_session_id, Patient_Usertbl_user_id, PhysioTherapist_Usertbl_user_id, PhysioTherapist_Clinics_ClinicID)
 VALUES (1, 1, 1, 5, 1),

@@ -11,10 +11,12 @@ import { SecretaryDashModule} from './SecretaryDash/SecretaryDash.module';
 import { addPatientModule } from './AddPatient/addPatient.module';
 import { ViewPatientsModule } from './ViewPatients/viewPatients.module';
 
+import { AddAppointmentModule} from './AddAppointment/AddAppointment.module';
+
 import { AppRoutingModule } from './app-routing.module';	
 
 @NgModule({
-	imports: [HttpModule, BrowserModule, FormsModule, RouterModule, SecretaryDashModule,addPatientModule, ViewPatientsModule, AppRoutingModule],
+	imports: [HttpModule, BrowserModule, FormsModule, RouterModule, SecretaryDashModule,addPatientModule, ViewPatientsModule, AddAppointmentModule, AppRoutingModule],
 	declarations: [AppComponent, LoginComponent],
 	bootstrap: [AppComponent]
 })

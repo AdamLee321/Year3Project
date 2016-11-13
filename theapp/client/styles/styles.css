@@ -1,8 +1,8 @@
 body{
     padding-top: 70px;
     background-color: #e6e6e6;
-    background-image: url('https://www.xmple.com/wallpaper/black-grey-gradient-linear-1920x1080-c2-000000-d3d3d3-a-210-f-14.svg');
-
+    /*background-image: url('https://www.xmple.com/wallpaper/black-grey-gradient-linear-1920x1080-c2-000000-d3d3d3-a-210-f-14.svg');
+*/
 }
 hr{
     border-top: 2px solid #eee;
@@ -79,6 +79,17 @@ hr{
     display: block;
     padding: 15px 15px;
 }
+
+/* End SideBar Styling*/
+
+/* Styling for Form*/
+
+.formDiv{
+    background-color: #f4f4f4;
+    border-radius: 4px;
+}
+
+/* End Styling for Form*/
 
 .col-md-2{
     padding-left: 10px;

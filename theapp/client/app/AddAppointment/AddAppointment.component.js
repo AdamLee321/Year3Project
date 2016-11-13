@@ -12,6 +12,29 @@ var core_1 = require('@angular/core');
 var AddAppointmentComponent = (function () {
     function AddAppointmentComponent() {
     }
+    AddAppointmentComponent.prototype.ngOnInit = function () {
+        var thevalue = new Date(Date.now());
+        this.UpdateDate(thevalue);
+    };
+    AddAppointmentComponent.prototype.UpdateDate = function (value) {
+        console.log(value);
+        var thevalue = new Date(value);
+        if (thevalue.getMinutes() > 0 && thevalue.getMinutes() < 15) {
+            thevalue.setMinutes(thevalue.getMinutes() - thevalue.getMinutes());
+        }
+        else if (thevalue.getMinutes() > 15 && thevalue.getMinutes() < 30) {
+            thevalue.setMinutes(thevalue.getMinutes() - thevalue.getMinutes() + 30);
+        }
+        else if (thevalue.getMinutes() > 30 && thevalue.getMinutes() < 45) {
+            thevalue.setMinutes(thevalue.getMinutes() - thevalue.getMinutes());
+            thevalue.setHours(thevalue.getHours() + 1);
+        }
+        else if (thevalue.getMinutes() > 45 && thevalue.getMinutes() < 60) {
+            thevalue.setMinutes(thevalue.getMinutes() - thevalue.getMinutes() + 30);
+            thevalue.setHours(thevalue.getHours() - 1);
+        }
+        this.thevalue = thevalue;
+    };
     AddAppointmentComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
