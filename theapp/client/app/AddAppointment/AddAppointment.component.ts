@@ -16,13 +16,13 @@ export class AddAppointmentComponent{
     }
 
     UpdateDate(value){
-        console.log(value);
         var thevalue = new Date(value);
+        console.log(thevalue.getMinutes())
         if(thevalue.getMinutes() > 0 && thevalue.getMinutes() <15){
-            thevalue.setMinutes(thevalue.getMinutes() - thevalue.getMinutes());
+            thevalue.setMinutes(thevalue.getMinutes() - thevalue.getMinutes() + 30);
         }
         else if(thevalue.getMinutes() > 15 && thevalue.getMinutes() <30){
-            thevalue.setMinutes(thevalue.getMinutes() - thevalue.getMinutes() + 30);
+            thevalue.setMinutes(thevalue.getMinutes() - thevalue.getMinutes());
         }
         else if(thevalue.getMinutes() > 30 && thevalue.getMinutes() <45){
             thevalue.setMinutes(thevalue.getMinutes() - thevalue.getMinutes());
@@ -33,5 +33,9 @@ export class AddAppointmentComponent{
             thevalue.setHours(thevalue.getHours() - 1);
         }
         this.thevalue = thevalue;
+
+        if(thevalue.getHours() < 8 || thevalue.getHours() > 17){
+            
+        }
     }
 }

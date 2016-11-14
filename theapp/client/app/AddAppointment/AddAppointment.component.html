@@ -15,7 +15,6 @@
                         <h3>Appointment Date: </h3>
                     </div>
                     <div class="col-sm-12">
-                        <!-- Date and Time Picker goes in here -->
                         <p-calendar [(ngModel)]="thevalue" [inline]="true" [showTime]="true" dateFormat="dd.mm.yyyy" showOtherMonths=true (onSelect)="UpdateDate(this.thevalue)"></p-calendar>
                     </div>
                 </div>
