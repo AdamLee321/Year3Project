@@ -15,10 +15,6 @@ export class SecretaryDashComponent {
 
 	updateTable(selDate){
 		console.log(selDate + "SecretaryDash.component.ts speaking");
-		this.secretarydashservice.updateTable(selDate).subscribe(rows => {
-			this.rows = rows;
-
-			console.log(rows);
-		})
+		this.secretarydashservice.updateTable(selDate).subscribe(rows => {this.rows = rows;console.log(rows);})
 	}
  }

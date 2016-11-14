@@ -17,10 +17,7 @@ var SecretaryDashComponent = (function () {
     SecretaryDashComponent.prototype.updateTable = function (selDate) {
         var _this = this;
         console.log(selDate + "SecretaryDash.component.ts speaking");
-        this.secretarydashservice.updateTable(selDate).subscribe(function (rows) {
-            _this.rows = rows;
-            console.log(rows);
-        });
+        this.secretarydashservice.updateTable(selDate).subscribe(function (rows) { _this.rows = rows; console.log(rows); });
     };
     SecretaryDashComponent = __decorate([
         core_1.Component({

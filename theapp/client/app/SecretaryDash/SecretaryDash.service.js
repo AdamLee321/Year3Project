@@ -17,7 +17,7 @@ var SecretaryDashService = (function () {
         console.log('Appointments Service Initialized!');
     }
     SecretaryDashService.prototype.updateTable = function (selDate) {
-        console.log(selDate + "SecretaryDash.service.ts speaking");
+        console.log(selDate);
         return this.http.get('http://localhost:3000/api/dayAppointments/:' + selDate).map(function (res) { return res.json(); });
     };
     SecretaryDashService = __decorate([

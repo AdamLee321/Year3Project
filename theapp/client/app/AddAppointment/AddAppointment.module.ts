@@ -7,11 +7,11 @@ import { RouterModule}		from '@angular/router';
 import { AddAppointmentComponent } from './AddAppointment.component';
 import { SecretaryHeaderModule } from '../SecretaryHeader/secretary-header.module';
 import { SideBarModule} from '../SideBar/SideBar.module';
-
 import { CalendarModule } from 'primeng/primeng';
+import { AlertModule } from 'ng2-bootstrap/components/alert';
 
 @NgModule({
-    imports: [HttpModule, BrowserModule, FormsModule, RouterModule, SecretaryHeaderModule, SideBarModule, CalendarModule],
+    imports: [HttpModule, BrowserModule, FormsModule, RouterModule, SecretaryHeaderModule, SideBarModule, CalendarModule, AlertModule],
     declarations: [AddAppointmentComponent],
     exports: [AddAppointmentComponent]
 })

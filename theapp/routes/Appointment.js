@@ -18,7 +18,7 @@ router.get('/dayAppointments/:selDate', function(req, res, next){
     endDate = new Date(endDate.setHours(endDate.getHours() - 12));
     var stringEnd = moment(endDate).format('YYYY-MM-DD hh:mm:ss');
 
-    
+
 
     var startDate = new Date(req.params.selDate);
     startDate = new Date(startDate.setHours(startDate.getHours() - 12));
@@ -27,15 +27,39 @@ router.get('/dayAppointments/:selDate', function(req, res, next){
     console.log(stringStart);
     console.log(stringEnd);
 
-    connection.query("SELECT a.dateOfApp, p.p_Fname, p.p_Lname, ph.Phy_Fname, ph.Phy_Lname FROM appointment as a INNER JOIN patientappointment as pa ON pa.Appointment_App_id = a.App_id INNER JOIN patient as p ON pa.Patient_Usertbl_user_id = p.Usertbl_user_id INNER JOIN physiotherapist as ph ON pa.PhysioTherapist_Usertbl_user_id = ph.Usertbl_user_id WHERE a.dateOfApp BETWEEN ? AND ?",[stringStart, stringEnd], function(error, rows){
+    connection.query("SELECT a.dateOfApp, p.p_Fname, p.p_Lname, ph.Phy_Fname, ph.Phy_Lname FROM appointment as a INNER JOIN patientappointment as pa ON pa.Appointment_App_id = a.App_id INNER JOIN patient as p ON pa.Patient_Usertbl_user_id = p.Usertbl_user_id INNER JOIN physiotherapist as ph ON pa.PhysioTherapist_Usertbl_user_id = ph.Usertbl_user_id WHERE a.dateOfApp BETWEEN ? AND ?",[stringStart, stringEnd], function(error, checkappTime){
         if (!!error){
             console.log(error);
         }
         else{
-            console.log(rows);
-            res.json(rows);
+            console.log(checkappTime);
+            res.json(checkappTime);
         }
     });
+})
+
+router.get('/dayAppointments/:theDatevalue/:PhysioFName/:PhysioLName', function(req, res, next){
+    console.log("ok Im getting to the application.js file");
+    var newdate = new Date(req.params.theDatevalue);
+    var datestring = moment(newdate).format('YYYY-MM-DD hh:mm:ss');
+    
+    var PhysioFName = req.params.PhysioFName;
+    var PhysioLName = req.params.PhysioLName;
+    console.log(datestring);
+    console.log(PhysioFName);
+    console.log(PhysioLName);
+
+    connection.query("SELECT a.dateOfApp FROM appointment as a INNER JOIN patientappointment as pa ON a.App_id = pa.Appointment_App_id INNER JOIN physiotherapist as ph ON pa.PhysioTherapist_Usertbl_user_id = ph.Usertbl_user_id WHERE a.dateOfApp = ? && ph.phy_Fname = ? && ph.phy_Lname = ?", [datestring, PhysioFName, PhysioLName], function(error, rows){
+        if (!!error){
+            console.log(error);
+            console.log("Am I getting here?");
+        }
+        else{
+            console.log(rows);
+            res.json(rows);
+            console.log("I cant be possibly getting here");
+        }
+    })
 })
 
 module.exports = router;

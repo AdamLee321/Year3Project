@@ -9,8 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var AddAppointment_service_1 = require('./AddAppointment.service');
 var AddAppointmentComponent = (function () {
-    function AddAppointmentComponent() {
+    function AddAppointmentComponent(addappointmentservice) {
+        this.addappointmentservice = addappointmentservice;
+        this.alerts = [];
     }
     AddAppointmentComponent.prototype.ngOnInit = function () {
         var thevalue = new Date(Date.now());
@@ -18,7 +21,6 @@ var AddAppointmentComponent = (function () {
     };
     AddAppointmentComponent.prototype.UpdateDate = function (value) {
         var thevalue = new Date(value);
-        console.log(thevalue.getMinutes());
         if (thevalue.getMinutes() > 0 && thevalue.getMinutes() < 15) {
             thevalue.setMinutes(thevalue.getMinutes() - thevalue.getMinutes() + 30);
         }
@@ -34,16 +36,52 @@ var AddAppointmentComponent = (function () {
             thevalue.setHours(thevalue.getHours() - 1);
         }
         this.thevalue = thevalue;
-        if (thevalue.getHours() < 8 || thevalue.getHours() > 17) {
+    };
+    //Checking whether timeslot is free
+    AddAppointmentComponent.prototype.CheckAvailability = function (Datevalue) {
+        var _this = this;
+        var PhyFName = this.PhyFName;
+        var PhyLName = this.PhyLName;
+        var theDatevalue = new Date(this.thevalue);
+        console.log(this.PhyFName);
+        console.log(this.PhyLName);
+        console.log(theDatevalue);
+        //theDatevalue.setSeconds(theDatevalue.getSeconds() - theDatevalue.getSeconds());
+        console.log(theDatevalue);
+        //Checks if time is within opening hours
+        if (theDatevalue.getHours() < 8 || theDatevalue.getHours() > 17) {
+            var test = this.alerts.push({ msg: 'The Time you selected is outside Opening Hours!', type: 'danger', closable: true });
         }
+        else if (PhyFName == null || PhyFName == "" || PhyLName == null || PhyLName == "") {
+            var test = this.alerts.push({ msg: 'Please select a Phyiotherpaist!', type: 'warning', closable: true });
+        }
+        else {
+            //Now do database call. Doesnt add?
+            this.addappointmentservice.CheckAvailability(theDatevalue, PhyFName, PhyLName).subscribe(function (checkappTime) { _this.checkappTime = checkappTime; });
+            //this.secretarydashservice.updateTable(selDate).subscribe(rows => {this.rows = rows;console.log(rows);})
+            //Above call isnt adding anything to checkappTime
+            //console.log(this.checkappTime.length);
+            if (this.checkappTime.length > 0) {
+                var test = this.alerts.push({ msg: 'The Time you selected is not Available!', type: 'danger', closable: true });
+            }
+            else {
+                var test = this.alerts.push({ msg: 'The Time you selected is Available!', type: 'Success', closable: true });
+            }
+            ;
+        }
+        //var test = this.alerts.push({msg: 'The Time you selected is within Opening Hours!', type: 'success', closable: true});
+    };
+    AddAppointmentComponent.prototype.closeAlert = function (i) {
+        this.alerts.splice(i, 1);
     };
     AddAppointmentComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'AddAppointment',
-            templateUrl: 'AddAppointment.component.html'
+            templateUrl: 'AddAppointment.component.html',
+            providers: [AddAppointment_service_1.AddAppointmentService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [AddAppointment_service_1.AddAppointmentService])
     ], AddAppointmentComponent);
     return AddAppointmentComponent;
 }());

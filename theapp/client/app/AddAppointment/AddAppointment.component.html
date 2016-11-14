@@ -15,7 +15,13 @@
                         <h3>Appointment Date: </h3>
                     </div>
                     <div class="col-sm-12">
-                        <p-calendar [(ngModel)]="thevalue" [inline]="true" [showTime]="true" dateFormat="dd.mm.yyyy" showOtherMonths=true (onSelect)="UpdateDate(this.thevalue)"></p-calendar>
+                        <p-calendar [(ngModel)]="thevalue" #thecalendar [inline]="true" [showTime]="true" dateFormat="dd.mm.yyyy" showOtherMonths=true (onSelect)="UpdateDate(this.thevalue)"></p-calendar>
+                    </div>
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-success" (click)="CheckAvailability()">Check Availability!</button>
+                    </div>
+                    <div class="col-sm-12">
+                        <alert *ngFor="let alert of alerts;let i = index" [type]="alert.type" dismissible="true" dismissOnTimeout="5000" (close)="closeAlert(i)">{{ alert?.msg }}</alert>
                     </div>
                 </div>
             </div>
@@ -69,10 +75,10 @@
                         <label for="patientNme">Physio: </label>
                     </div>
                     <div class="col-sm-4">
-                        <input class="form-control" type="text" placeholder="First Name" name="physioFName">
+                        <input #PhysioFName class="form-control" type="text" placeholder="First Name" [(ngModel)]="PhyFName" >
                     </div>
                     <div class="col-sm-4">
-                        <input class="form-control" type="text" placeholder="Last Name" name="physioLName">
+                        <input #PhysioLName class="form-control" type="text" placeholder="Last Name" [(ngModel)]="PhyLName" >
                     </div>
                 </div>
 

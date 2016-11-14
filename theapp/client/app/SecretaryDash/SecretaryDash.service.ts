@@ -10,7 +10,7 @@ export class SecretaryDashService{
     }
 
     updateTable(selDate){
-        console.log(selDate + "SecretaryDash.service.ts speaking");
+        console.log(selDate);
         return this.http.get('http://localhost:3000/api/dayAppointments/:'+selDate).map(res => res.json());
     }
 }

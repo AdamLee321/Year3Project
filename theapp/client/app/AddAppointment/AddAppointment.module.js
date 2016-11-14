@@ -17,12 +17,13 @@ var AddAppointment_component_1 = require('./AddAppointment.component');
 var secretary_header_module_1 = require('../SecretaryHeader/secretary-header.module');
 var SideBar_module_1 = require('../SideBar/SideBar.module');
 var primeng_1 = require('primeng/primeng');
+var alert_1 = require('ng2-bootstrap/components/alert');
 var AddAppointmentModule = (function () {
     function AddAppointmentModule() {
     }
     AddAppointmentModule = __decorate([
         core_1.NgModule({
-            imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule, secretary_header_module_1.SecretaryHeaderModule, SideBar_module_1.SideBarModule, primeng_1.CalendarModule],
+            imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule, secretary_header_module_1.SecretaryHeaderModule, SideBar_module_1.SideBarModule, primeng_1.CalendarModule, alert_1.AlertModule],
             declarations: [AddAppointment_component_1.AddAppointmentComponent],
             exports: [AddAppointment_component_1.AddAppointmentComponent]
         }), 
