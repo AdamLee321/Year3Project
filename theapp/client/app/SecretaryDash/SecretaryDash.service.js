@@ -20,6 +20,10 @@ var SecretaryDashService = (function () {
         console.log(selDate);
         return this.http.get('http://localhost:3000/api/dayAppointments/:' + selDate).map(function (res) { return res.json(); });
     };
+    SecretaryDashService.prototype.GetPhysios = function (ALocation) {
+        console.log(ALocation + " Service");
+        return this.http.get('http://localhost:3000/api/dayAppointments/:TheLocation/' + ALocation).map(function (res) { return res.json(); });
+    };
     SecretaryDashService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

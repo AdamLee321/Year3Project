@@ -11,9 +11,11 @@ import { Ng2PaginationModule} from 'ng2-pagination';
 
 import { CalendarModule } from 'primeng/primeng';
 
+import { FilterAppointmentPipe } from '../filterappointment.pipe';
+
 @NgModule({
     imports: [HttpModule, BrowserModule, FormsModule, RouterModule, SecretaryHeaderModule, SideBarModule, CalendarModule, Ng2PaginationModule],
-    declarations: [SecretaryDashComponent],
+    declarations: [SecretaryDashComponent, FilterAppointmentPipe],
     exports: [SecretaryDashComponent]
 })
 

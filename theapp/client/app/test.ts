@@ -1,3 +1,4 @@
 export class test{
-    dateOfApp: Date;
+    Phy_Fname: String;
+    Phy_Lname: String;
 }

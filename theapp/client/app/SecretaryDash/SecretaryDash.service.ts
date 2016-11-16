@@ -13,4 +13,10 @@ export class SecretaryDashService{
         console.log(selDate);
         return this.http.get('http://localhost:3000/api/dayAppointments/:'+selDate).map(res => res.json());
     }
+
+    GetPhysios(ALocation){
+        console.log(ALocation + " Service");
+        return this.http.get('http://localhost:3000/api/dayAppointments/:TheLocation/'+ALocation).map(res => res.json());
+    }
+
 }
