@@ -13,6 +13,7 @@ var SecretaryDash_service_1 = require('./SecretaryDash.service');
 var SecretaryDashComponent = (function () {
     function SecretaryDashComponent(secretarydashservice) {
         this.secretarydashservice = secretarydashservice;
+        this.EditAppointment = [];
         this.rows = [];
         this.Location = "Dublin";
         this.times = [
@@ -61,12 +62,69 @@ var SecretaryDashComponent = (function () {
             console.log(_this.names);
         });
     };
+    SecretaryDashComponent.prototype.OpenModal = function (time, PhyFName, PhyLName) {
+        console.log(this.rows[0]);
+        for (var i = 0; i < this.rows.length; i++) {
+            var appHours = this.rows[i].dateOfApp.getHours();
+            var timeHours = time.getHours();
+            if (appHours == timeHours) {
+                if (this.rows[i].dateOfApp.getMinutes() == time.getMinutes()) {
+                    if (this.rows[i].Phy_Fname == PhyFName) {
+                        if (this.rows[i].Phy_Lname == PhyLName) {
+                            this.EditAppointment.push(this.rows[i]);
+                        }
+                    }
+                }
+            }
+        }
+        this.teststring = time + PhyFName + PhyLName;
+        if (!document.getElementById(this.teststring)) {
+            this.AddApp.open();
+            console.log("It does not exist!");
+        }
+        else {
+            this.EditApp.open();
+            console.log("So It does exist");
+        }
+    };
+    __decorate([
+        core_1.ViewChild('EditApp'), 
+        __metadata('design:type', Object)
+    ], SecretaryDashComponent.prototype, "EditApp", void 0);
+    __decorate([
+        core_1.ViewChild('AddApp'), 
+        __metadata('design:type', Object)
+    ], SecretaryDashComponent.prototype, "AddApp", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], SecretaryDashComponent.prototype, "EditAppointment", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], SecretaryDashComponent.prototype, "time", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], SecretaryDashComponent.prototype, "PFName", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], SecretaryDashComponent.prototype, "PLName", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], SecretaryDashComponent.prototype, "PhyFName", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], SecretaryDashComponent.prototype, "PhyLName", void 0);
     SecretaryDashComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'SecDash',
             templateUrl: 'SecretaryDash.component.html',
-            providers: [SecretaryDash_service_1.SecretaryDashService],
+            providers: [SecretaryDash_service_1.SecretaryDashService]
         }), 
         __metadata('design:paramtypes', [SecretaryDash_service_1.SecretaryDashService])
     ], SecretaryDashComponent);

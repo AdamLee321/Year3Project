@@ -1,4 +1,4 @@
-import {Component } from '@angular/core';
+import {Component, ViewChild, Input} from '@angular/core';
 import {SecretaryDashService} from './SecretaryDash.service';
 import {Appointment} from '../Appointment';
 import {test} from '../test';
@@ -7,12 +7,24 @@ import {test} from '../test';
 	moduleId: module.id,
 	selector: 'SecDash',
 	templateUrl: 'SecretaryDash.component.html',
-	providers: [SecretaryDashService],
+	providers: [SecretaryDashService]
 })
 
 export class SecretaryDashComponent {
+	@ViewChild('EditApp')EditApp:any;
+	@ViewChild('AddApp')AddApp:any;
+
+	@Input() EditAppointment: Appointment[] = [];
+
+	@Input() time:any;
+	@Input() PFName:any;
+	@Input() PLName:any;
+	@Input() PhyFName:any;
+	@Input() PhyLName:any;
+
 	rows: Appointment[] = [];
 	Location: String = "Dublin";
+	teststring:string;
 
 	names: test[];
 
@@ -66,5 +78,35 @@ export class SecretaryDashComponent {
 				this.names = names;
 				console.log(this.names);
 			})
+	}
+
+	OpenModal(time, PhyFName, PhyLName){
+
+		console.log(this.rows[0]);
+		for(var i=0;i<this.rows.length; i++){
+
+			var appHours = this.rows[i].dateOfApp.getHours();
+			var timeHours = time.getHours();
+
+			if(appHours == timeHours){
+				if(this.rows[i].dateOfApp.getMinutes() == time.getMinutes()){
+					if(this.rows[i].Phy_Fname == PhyFName){
+						if(this.rows[i].Phy_Lname == PhyLName){
+							this.EditAppointment.push(this.rows[i]);
+						}
+					}
+				}
+			}
+		}
+		this.teststring = time + PhyFName + PhyLName;
+
+		if(!document.getElementById(this.teststring)){
+			this.AddApp.open();
+			console.log("It does not exist!");
+		}
+		else{
+			this.EditApp.open();
+			console.log("So It does exist");
+		}
 	}
  }

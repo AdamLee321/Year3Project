@@ -39,6 +39,7 @@
     "zone.js": "^0.6.25"
   },
   "devDependencies": {
+    "@types/jquery": "^2.0.34",
     "concurrently": "^3.0.0",
     "lite-server": "^2.2.2",
     "typescript": "^2.0.3",

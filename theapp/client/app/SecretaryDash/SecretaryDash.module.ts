@@ -10,11 +10,12 @@ import { SideBarModule} from '../SideBar/SideBar.module';
 import { Ng2PaginationModule} from 'ng2-pagination';
 
 import { CalendarModule } from 'primeng/primeng';
+import {ModalModule} from 'ng2-modal';
 
 import { FilterAppointmentPipe } from '../filterappointment.pipe';
 
 @NgModule({
-    imports: [HttpModule, BrowserModule, FormsModule, RouterModule, SecretaryHeaderModule, SideBarModule, CalendarModule, Ng2PaginationModule],
+    imports: [HttpModule, BrowserModule, FormsModule, RouterModule, SecretaryHeaderModule, SideBarModule, CalendarModule, Ng2PaginationModule, ModalModule],
     declarations: [SecretaryDashComponent, FilterAppointmentPipe],
     exports: [SecretaryDashComponent]
 })

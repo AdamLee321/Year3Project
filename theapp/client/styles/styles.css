@@ -20,6 +20,18 @@ hr{
     border-radius: 4px;
 }
 
+/* CSS for circular Buttons*/
+.btn-circle{
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.428;
+}
+
+.div-right{
+    float: right;
+}
+
 /*CSS for DatePicker*/
 
 .ui-datepicker{
