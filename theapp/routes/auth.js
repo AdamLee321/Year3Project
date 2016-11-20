@@ -1,5 +1,5 @@
 
-modules.exports = function(app,passport){
+module.exports = function(app,passport){
 
 app.get('/login',function(req,res,next){
     res.render('login.html'); //Change this
