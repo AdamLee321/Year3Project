@@ -41,7 +41,7 @@ router.get('/dayAppointments/:selDate', function(req, res, next){
 //GETS APPOINTMENTS
 router.get('/dayAppointments/:TheLocation/:ALocation', function(req, res, next){ //Needs to be changed
     var LocationString = req.params.ALocation;
-    console.log(LocationString + "This is from Appointment.js");
+    console.log(LocationString + " - This is from Appointment.js");
     connection.query("SELECT p.Phy_Fname, p.Phy_Lname from physiotherapist as p JOIN clinics as c ON p.Clinics_ClinicID = c.ClinicID WHERE c.c_County = ?", [LocationString], function(error, names){
         if(!!error){
             console.log(error);
